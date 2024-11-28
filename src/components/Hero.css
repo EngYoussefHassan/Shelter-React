@@ -1,0 +1,44 @@
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  font-family: "Patua One", serif;
+}
+
+.background a {
+  color: white;
+}
+.background a {
+  color: white;
+}
+
+.background {
+  background-image: url("/src/assets/Pics/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.btn1 {
+  background-color: #33a2ff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  padding-left: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Patua One", serif;
+}
+
+.btn1:hover {
+  background-color: #002646;
+  font-family: "Patua One", serif;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}

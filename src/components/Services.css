@@ -1,0 +1,18 @@
+* {
+  font-family: "Patua One", serif;
+}
+
+.adopt img,
+.foster img,
+.sponser img {
+  width: 100px;
+  height: 100px;
+}
+
+.adopt:hover,
+.foster:hover,
+.sponser:hover {
+  cursor: pointer;
+  transition: 0.5 all;
+  background-color: white;
+}
