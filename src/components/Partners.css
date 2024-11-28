@@ -1,0 +1,13 @@
+.Partner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.Partner img {
+  max-height: 100px;
+}
+.Partner p {
+  width: 150px;
+}

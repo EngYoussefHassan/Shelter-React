@@ -1,4 +1,5 @@
 import React from "react";
+import "./About.css";
 
 const About = () => {
   return (
@@ -46,7 +47,7 @@ const About = () => {
         Thanks to the support of our community, we have successfully rescued and
         rehomed over 1,000 animals. Read some of our{" "}
         <a href="#success-stories">success stories</a> to see the difference
-        we’re making.
+        we're making.
       </p>
       <h3>Our Partners</h3>
       <p>
