@@ -1,47 +1,62 @@
 import React from "react";
-import "./Navbar.css";
+const btn = document.getElementById("menu-btn");
+const nav = document.getElementById("menu");
 
+btn.addEventListener("click", () => {
+  btn.classList.toggle("open");
+  nav.classList.toggle("flex");
+  nav.classList.toggle("hidden");
+});
 const Navbar = () => {
   return (
-    <div className="bg">
-      <nav className="navbar navbar-expand-lg">
-        <div className="container">
-          <a className="navbar-brand" href="#">
-            FurEver Home
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Adopt
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Foster
-                </a>
-              </li>
-            </ul>
-          </div>
+    <nav className="relative container mx-auto p-6">
+      <div className="flex items-center justify-between">
+        <div className="pt-2">
+          <h1>FurEver</h1>
         </div>
-      </nav>
-    </div>
+        <div className="hidden md:flex space-x-6">
+          <a href="#" className="hover:text-blue-700">
+            Adopt
+          </a>
+          <a href="#" className="hover:text-blue-700">
+            Foster
+          </a>
+          <a href="#" className="hover:text-blue-700">
+            Sponser
+          </a>
+          <a href="#" className="hover:text-blue-700">
+            About Us
+          </a>
+        </div>
+        <div>
+          <button
+            className="hidden md:block rounded-[5px] bg-blue-950 text-white px-4 py-2 hover:bg-blue-800"
+            onclick=""
+          >
+            Adopt Now
+          </button>
+        </div>
+        <button
+          id="menu-btn"
+          className="open block hamburger md:hidden focus:outline-none"
+        >
+          <span className="hamburger-top"></span>
+          <span className="hamburger-middle"></span>
+          <span className="hamburger-bottom"></span>
+        </button>
+      </div>
+      <div className="md:hidden">
+        <div
+          id="menu"
+          className=" absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+        >
+          <a href="#">Adopt</a>
+          <a href="#">Foster</a>
+          <a href="#">Sponser</a>
+          <a href="#">About Us</a>
+        </div>
+      </div>
+    </nav>
   );
 };
 

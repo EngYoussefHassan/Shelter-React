@@ -6,8 +6,8 @@ import About from "./components/About";
 import Partners from "./components/Partners";
 import Contact from "./components/ContactUs";
 
-// import "./stylesheet.css";
 import WebFont from "webfontloader";
+import Navbar from "./components/Navbar";
 
 WebFont.load({
   google: {
@@ -23,6 +23,7 @@ WebFont.load({
 const App = () => {
   return (
     <>
+      <Navbar />
       <Hero />
       <Services />
       <SuccessfulAdoption />
