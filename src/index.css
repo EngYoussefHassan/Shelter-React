@@ -3,11 +3,24 @@
 @tailwind utilities;
 
 body {
-  background: rgb(255,255,255);
-  background: -moz-linear-gradient(185deg, rgba(255,255,255,1) 0%, rgba(81,210,255,1) 100%);
-  background: -webkit-linear-gradient(185deg, rgba(255,255,255,1) 0%, rgba(81,210,255,1) 100%);
-  background: linear-gradient(185deg, rgba(255,255,255,1) 0%, rgba(81,210,255,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#51d2ff",GradientType=1);}
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    185deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(40, 69, 153, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    185deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(40, 69, 153, 1) 100%
+  );
+  background: linear-gradient(
+    185deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(40, 69, 153, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#284599",GradientType=1);
+}
 
 .hamburger {
   cursor: pointer;
