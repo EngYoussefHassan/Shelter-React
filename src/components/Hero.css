@@ -1,24 +1,35 @@
-h1 {
-  font-size: 4rem;
+.heroHero {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  background-image: url("/src/assets/Pics/bg.jpg");
+}
+.heroHero h1 {
+  font-size: 3.2rem;
   font-weight: 700;
   color: white;
+  text-align: center;
   font-family: "Patua One", serif;
+  margin-bottom: 20px;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
 }
-
-.background a {
-  color: white;
+.wrap {
+  margin-bottom: 150px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
-.background a {
-  color: white;
-}
-
-.background {
-  background-image: url("/src/assets/Pics/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-.btn1 {
+.heroHero button {
+  margin-top: 50px;
   background-color: #33a2ff;
   color: #fff;
   padding: 10px 20px;
@@ -31,14 +42,57 @@ h1 {
   font-family: "Patua One", serif;
 }
 
-.btn1:hover {
+.heroHero button:hover {
   background-color: #002646;
   font-family: "Patua One", serif;
 }
 
-.container {
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 10px 20px;
+  background-image: url("/src/assets/Pics/bg.jpg");
+}
+
+/* Website Name */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: #6c85ff; /* Dark green for hover effect */
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
 }

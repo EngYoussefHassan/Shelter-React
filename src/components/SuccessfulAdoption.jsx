@@ -76,7 +76,7 @@ const SuccessfulAdoption = () => {
       </div>
       <div className="row">
         <div className="col-lg-6 text-center m-auto">
-          <button className="btn2">Click Here For More</button>
+          <button className="btn2">Adopt Now</button>
         </div>
       </div>
     </div>

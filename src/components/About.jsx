@@ -49,11 +49,7 @@ const About = () => {
         <a href="#success-stories">success stories</a> to see the difference
         we're making.
       </p>
-      <h3>Our Partners</h3>
-      <p>
-        We are grateful for the support of our partners and sponsors who help us
-        achieve our mission.
-      </p>
+      
       <h3>Contact Us</h3>
       <p>
         <strong>Location:</strong> 123 Paws Street, Barktown, Cuddle County,
