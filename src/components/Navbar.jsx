@@ -9,10 +9,10 @@ btn.addEventListener("click", () => {
 });
 const Navbar = () => {
   return (
-    <nav className="relative container mx-auto p-6">
+    <nav className=" relative container mx-auto p-3">
       <div className="flex items-center justify-between">
         <div className="pt-2">
-          <h1>FurEver</h1>
+          <h1 className="font-bold text-4xl text">FurEver</h1>
         </div>
         <div className="hidden md:flex space-x-6">
           <a href="#" className="hover:text-blue-700">
