@@ -5,6 +5,9 @@ import SuccessfulAdoption from "./components/SuccessfulAdoption";
 import About from "./components/About";
 import Partners from "./components/Partners";
 import Contact from "./components/ContactUs";
+import Footer from "./components/Footer";
+import Payment from "./components/pages/Payment";
+import Adopt_Foster from "./components/Adopt_Foster";
 
 import WebFont from "webfontloader";
 import Navbar from "./components/Navbar";
@@ -23,13 +26,16 @@ WebFont.load({
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Adopt_Foster />
+
+      {/* <Navbar />
       <Hero />
       <Services />
       <SuccessfulAdoption />
       <About />
       <Partners />
       <Contact />
+      <Footer /> */}
     </>
   );
 };
