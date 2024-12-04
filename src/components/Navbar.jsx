@@ -9,7 +9,7 @@ btn.addEventListener("click", () => {
 });
 const Navbar = () => {
   return (
-    <nav className=" relative container mx-auto p-3">
+    <nav className=" relative container mx-auto py-2">
       <div className="flex items-center justify-between">
         <div className="pt-2">
           <h1 className="font-bold text-4xl text">FurEver</h1>
