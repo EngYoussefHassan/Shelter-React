@@ -1,5 +1,4 @@
 import React from "react";
-import "./SuccessfulAdoptions.css";
 
 const SuccessfulAdoption = () => {
   return (
