@@ -2,7 +2,6 @@ import React from "react";
 
 const Hero = () => {
   return (
-    hello Mariam
     <>
       <div
         id="heroPart"
