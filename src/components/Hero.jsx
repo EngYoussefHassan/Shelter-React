@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleAdoptNow = () => {
+    navigate("/adopt-foster");
+  };
+
   return (
     <>
       <div
@@ -17,8 +24,8 @@ const Hero = () => {
           </p>
           <div className="flex justify-center md:justify-start">
             <button
-              className="md:block  rounded-[5px] bg-blue-950 text-white px-4 py-2 hover:bg-blue-800"
-              onClick=""
+              className="md:block rounded-[5px] bg-blue-950 text-white px-4 py-2 hover:bg-blue-800"
+              onClick={handleAdoptNow}
             >
               Adopt Now
             </button>
