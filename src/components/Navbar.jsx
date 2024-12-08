@@ -20,9 +20,7 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-blue-700">Home</Link>
           <Link to="/adopt-foster" className="hover:text-blue-700">Adopt/Foster</Link>
-          <Link to="/sponsor" className="hover:text-blue-700">Sponsor</Link>
           <Link to="/about" className="hover:text-blue-700">About Us</Link>
-          <Link to="/partners" className="hover:text-blue-700">Partners</Link>
           <Link to="/successful-adoption" className="hover:text-blue-700">Successful Adoptions</Link>
 
         </div>
@@ -50,9 +48,7 @@ const Navbar = () => {
         <div id="menu" className="md:hidden flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 absolute drop-shadow-md">
           <Link to="/" className="hover:text-blue-700">Home</Link>
           <Link to="/adopt-foster" className="hover:text-blue-700">Adopt/Foster</Link>
-          <Link to="/sponsor" className="hover:text-blue-700">Sponsor</Link>
           <Link to="/about" className="hover:text-blue-700">About Us</Link>
-          <Link to="/partners" className="hover:text-blue-700">Partners</Link>
           <Link to="/successful-adoptions" className="hover:text-blue-700">Successful Adoptions</Link>
         </div>
       )}

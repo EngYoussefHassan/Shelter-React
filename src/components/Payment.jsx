@@ -38,29 +38,32 @@ const Payment = () => {
   };
 
   return (
-    <section className="bg-blue-900 py-10">
-      <div className="container mx-auto px-4">
+    <section className="bg-gradient-to-b from-blue-900 to-blue-600 py-12">
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-white">Payment Information</h1>
-          <p className="text-lg text-gray-300 mt-2">
-            Help us make a difference by contributing!
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold text-white">Payment Portal</h1>
+          <p className="text-xl text-gray-200 mt-4">
+            Support our cause by making a secure payment!
           </p>
         </div>
 
         {/* Payment Form */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            Payment Details
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* Input Fields */}
             <input
               type="text"
               className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="Name"
+              placeholder="Full Name"
             />
             <input
               type="email"
               className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="Email"
+              placeholder="Email Address"
             />
             <input
               type="tel"
@@ -73,50 +76,56 @@ const Payment = () => {
               onChange={handleReasonChange}
             >
               <option value="" disabled>
-                Select Reason for Payment
+                Select Payment Reason
               </option>
               <option value="adoption">Adoption</option>
               <option value="fostering">Fostering</option>
-              <option value="sponsor">Sponsor</option>
+              <option value="sponsor">Sponsorship</option>
             </select>
           </div>
 
           {/* Conditional Fields */}
           {reason === "sponsor" && (
-            <div className="mt-6">
+            <div className="mb-6">
               <input
-                type="text"
+                type="number"
                 className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Amount"
+                placeholder="Enter Amount"
               />
             </div>
           )}
           {(reason === "adoption" || reason === "fostering") && (
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               <select
                 className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 value={selectedAnimal}
                 onChange={handleAnimalChange}
               >
                 <option value="" disabled>
-                  Select Animal ID
+                  Select Animal
                 </option>
-                <option value="001">Buddy (ID: 001)</option>
-                <option value="002">Milo (ID: 002)</option>
-                <option value="003">Bella (ID: 003)</option>
-                <option value="004">Max (ID: 004)</option>
-                <option value="005">Lucy (ID: 005)</option>
-                <option value="006">Charlie (ID: 006)</option>
-                <option value="007">Daisy (ID: 007)</option>
-                <option value="008">Rocky (ID: 008)</option>
-                <option value="009">Luna (ID: 009)</option>
-                <option value="010">Cooper (ID: 010)</option>
-                <option value="011">Zoey (ID: 011)</option>
-                <option value="012">Finn (ID: 012)</option>
-                <option value="013">Sadie (ID: 013)</option>
-                <option value="014">Ollie (ID: 014)</option>
-                <option value="015">Molly (ID: 015)</option>
-                <option value="016">Toby (ID: 016)</option>
+                {Object.entries({
+                  "001": "Buddy",
+                  "002": "Milo",
+                  "003": "Bella",
+                  "004": "Max",
+                  "005": "Lucy",
+                  "006": "Charlie",
+                  "007": "Daisy",
+                  "008": "Rocky",
+                  "009": "Luna",
+                  "010": "Cooper",
+                  "011": "Zoey",
+                  "012": "Finn",
+                  "013": "Sadie",
+                  "014": "Ollie",
+                  "015": "Molly",
+                  "016": "Toby",
+                }).map(([id, name]) => (
+                  <option key={id} value={id}>
+                    {name} (ID: {id})
+                  </option>
+                ))}
               </select>
               {amount && (
                 <input
@@ -131,7 +140,7 @@ const Payment = () => {
 
           {/* Payment Details */}
           {reason && (
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               <select className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 <option value="" disabled>
                   Select Payment Method
@@ -142,15 +151,15 @@ const Payment = () => {
               <input
                 type="text"
                 className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Credit Card Number"
+                placeholder="Card Number"
               />
             </div>
           )}
 
           {/* Submit Button */}
-          <div className="mt-6 text-center">
-            <button className="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition">
-              Pay Now
+          <div className="text-center">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+              Proceed to Pay
             </button>
           </div>
         </div>
