@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { db, storage } from "../firebase"; // Import Firebase config
+import { db, storage } from "../firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
 
 const AnimalForm = () => {
   const [name, setName] = useState("");
-  const [type, setType] = useState(""); // e.g., Dog, Cat
+  const [type, setType] = useState(""); 
   const [age, setAge] = useState("");
+  const [gender, setGender] = useState(""); 
+  const [breed, setBreed] = useState("");
+  const [vaccination, setVaccination] = useState(""); 
+  const [pottyTraining, setPottyTraining] = useState(""); 
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
@@ -23,14 +27,21 @@ const AnimalForm = () => {
         name,
         type,
         age,
+        gender,
+        breed,
+        vaccination,
+        pottyTraining, 
         description,
-        // You may add other fields as needed
       });
 
       // Reset the form
       setName("");
       setType("");
       setAge("");
+      setGender(""); 
+      setBreed(""); 
+      setVaccination("");
+      setPottyTraining("");
       setDescription("");
       setImage(null);
 
@@ -74,6 +85,54 @@ const AnimalForm = () => {
             required
             className="w-full border rounded px-3 py-2"
           />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Gender</label>
+          <input
+            type="text"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Breed</label>
+          <input
+            type="text"
+            value={breed}
+            onChange={(e) => setBreed(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Vaccination Status</label>
+          <select
+            value={vaccination}
+            onChange={(e) => setVaccination(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          >
+            <option value="">Select</option>
+            <option value="Not Vaccinated">Not Vaccinated</option>
+            <option value="Partially Vaccinated">Partially Vaccinated</option>
+            <option value="Fully Vaccinated">Fully Vaccinated</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Potty Training</label>
+          <select
+            value={pottyTraining}
+            onChange={(e) => setPottyTraining(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          >
+            <option value="">Select</option>
+            <option value="Not Trained">Not Trained</option>
+            <option value="Partially Trained">Partially Trained</option>
+            <option value="Fully Trained">Fully Trained</option>
+          </select>
         </div>
         <div className="mb-4">
           <label className="block mb-2 text-gray-700">Description</label>

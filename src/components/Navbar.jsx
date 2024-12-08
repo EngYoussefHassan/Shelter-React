@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,11 +22,10 @@ const Navbar = () => {
           <Link to="/adopt-foster" className="hover:text-blue-700">Adopt/Foster</Link>
           <Link to="/about" className="hover:text-blue-700">About Us</Link>
           <Link to="/successful-adoption" className="hover:text-blue-700">Successful Adoptions</Link>
-
+          {user && ( // Conditionally render the "Add Animal" link
+            <Link to="/add-animal" className="hover:text-blue-700">Add Animal</Link>
+          )}
         </div>
-
-  
-
 
         {/* Desktop "Adopt Now" Button */}
         <div>
@@ -49,7 +48,10 @@ const Navbar = () => {
           <Link to="/" className="hover:text-blue-700">Home</Link>
           <Link to="/adopt-foster" className="hover:text-blue-700">Adopt/Foster</Link>
           <Link to="/about" className="hover:text-blue-700">About Us</Link>
-          <Link to="/successful-adoptions" className="hover:text-blue-700">Successful Adoptions</Link>
+          <Link to="/successful-adoption" className="hover:text-blue-700">Successful Adoptions</Link>
+          {user && ( // Conditionally render the "Add Animal" link in mobile menu
+            <Link to="/add-animal" className="hover:text-blue-700">Add Animal</Link>
+          )}
         </div>
       )}
     </nav>
