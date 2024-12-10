@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const SuccessfulAdop = () => {
   const [showMore, setShowMore] = useState(false);
@@ -32,9 +31,8 @@ const SuccessfulAdop = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {animals.slice(0, showMore ? animals.length : 8).map((animal) => (
-            <Link
+            <div
               key={animal.id}
-              to={`/animal/${animal.id}`}
               className="card shadow-lg rounded-lg overflow-hidden bg-white hover:transform hover:scale-105 transition-all"
             >
               <img
@@ -43,11 +41,11 @@ const SuccessfulAdop = () => {
                 className="w-full h-56 object-cover"
               />
               <h4 className="text-xl font-semibold text-gray-700 text-center py-4">
-                {animal.name}{" "}
+                {animal.name} {" "}
                 <span className="text-sm text-gray-500">(ID: {animal.id})</span>
               </h4>
               <p className="text-sm text-gray-800 px-4 pb-4">{animal.story}</p>
-            </Link>
+            </div>
           ))}
         </div>
 

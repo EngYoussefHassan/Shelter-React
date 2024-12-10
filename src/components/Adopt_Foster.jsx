@@ -56,8 +56,7 @@ const AdoptFoster = () => {
                   className="w-full h-56 object-cover"
                 />
                 <h4 className="text-xl font-semibold text-gray-700 text-center py-4">
-                  {animal.name}{" "}
-                  <span className="text-sm text-gray-500">(ID: {animal.id})</span>
+                  {animal.name}
                 </h4>
               </div>
             </Link>

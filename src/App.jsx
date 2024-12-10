@@ -16,8 +16,8 @@ import AnimalForm from "./components/AnimalForm";
 import HowToAdopt from "./components/HowToAdopt";
 import HowToSponsor from "./components/HowToSponsor";
 import HowToUpload from "./components/HowToUpload";
-import { auth } from "./firebase"; // Import Firebase auth
-import { onAuthStateChanged } from "firebase/auth"; // Correct import statement
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -47,7 +47,10 @@ const App = () => {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/sponsor" element={<Sponsor />} />
                     <Route path="/animal/:id" element={<AnimalInfo />} />
-                    <Route path="/payment/:id" element={<Payment />} />
+
+                    {/* Payment Routes */}
+                    <Route path="/payment" element={<Payment />} /> {/* General payment route */}
+                    <Route path="/payment/:id" element={<Payment />} /> {/* Payment with animal ID */}
 
                     {/* How To Routes */}
                     <Route path="/how-to/adopt" element={<HowToAdopt />} />
@@ -56,6 +59,17 @@ const App = () => {
 
                     {/* Protected Route for Add Animal */}
                     {user && <Route path="/add-animal" element={<AnimalForm />} />}
+
+                    {/* 404 Route */}
+                    <Route
+                        path="*"
+                        element={
+                            <div className="text-center py-20">
+                                <h1 className="text-5xl font-bold text-gray-700">404</h1>
+                                <p className="text-xl text-gray-500 mt-4">Page Not Found</p>
+                            </div>
+                        }
+                    />
                 </Routes>
                 <Footer />
             </div>

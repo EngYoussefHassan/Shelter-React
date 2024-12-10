@@ -1,47 +1,83 @@
-// src/pages/HowToSponsor.jsx
 import React from 'react';
 
 const HowToSponsor = () => {
+  const steps = [
+    {
+      title: "Choose a Pet to Sponsor",
+      description: "Browse our website and discover the stories of animals in need. Each pet's profile offers a glimpse into their personality, background, and care needs.",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+    {
+      title: "Select the Sponsorship Level",
+      description: "Pick a sponsorship level that aligns with your budget and commitment. Whether it's a one-time donation or a monthly pledge, every contribution matters!",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+    {
+      title: "Fill Out the Sponsorship Form",
+      description: "Click on the 'Sponsor a Pet' button on your chosen pet's profile. Fill out the form with your details and your sponsorship preferences.",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+    {
+      title: "Make Your Donation",
+      description: "Securely complete your donation via your preferred payment method. Choose between a one-time payment or recurring contributions.",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+    {
+      title: "Receive Updates",
+      description: "Stay connected! Receive heartwarming updates about your sponsored pet, their progress, and well-being. Feel the impact of your kindness.",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+    {
+      title: "Spread the Word",
+      description: "Share your sponsorship journey on social media using #SponsorAFurEverFriend. Inspire others to join you in making a difference!",
+      image: "https://via.placeholder.com/400", // Replace with actual image URL
+    },
+  ];
+
   return (
-    <div className="container mx-auto my-5 mt-10 px-4">
-      <h1 className="text-4xl font-bold text-blue-900 mb-4">How to Sponsor a Pet at FurEver Home</h1>
-      <p className="text-lg text-gray-800 mb-6">
-        Sponsoring a pet is a meaningful way to contribute to our mission at FurEver Home. Your support helps us provide food, medical care, and shelter for animals in need. Here’s how you can sponsor a pet today.
+    <div className="container mx-auto my-10 px-4">
+      <h1 className="text-5xl font-bold text-blue-900 mb-6 text-center">
+        Sponsor a Pet, Change a Life
+      </h1>
+      <p className="text-lg text-gray-800 mb-10 text-center max-w-2xl mx-auto">
+        Sponsoring a pet at FurEver Home is more than a donation—it's a way to show love, provide care, and create a brighter future for an animal in need. Follow these simple steps to become a hero for our furry friends.
       </p>
 
-      <h2 className="text-2xl font-bold text-blue-800 mt-4 mb-2">Steps to Sponsor a Pet</h2>
+      <div className="space-y-12">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6"
+          >
+            <div className="md:w-1/2">
+              <img
+                src={step.image}
+                alt={step.title}
+                className="rounded-lg shadow-md"
+              />
+            </div>
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold text-blue-800 mb-4">
+                {index + 1}. {step.title}
+              </h2>
+              <p className="text-gray-700 text-lg">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <ol className="list-decimal ml-8">
-        <li className="mb-4">
-          <h3 className="font-semibold">Choose a Pet to Sponsor:</h3>
-          <p>Visit our website and browse the animals available for sponsorship. Each pet's profile will provide information about their background and needs.</p>
-        </li>
-        <li className="mb-4">
-          <h3 className="font-semibold">Select the Sponsorship Level:</h3>
-          <p>We offer various sponsorship levels, each with different benefits and commitments. Choose a level that fits your budget and commitment.</p>
-        </li>
-        <li className="mb-4">
-          <h3 className="font-semibold">Fill Out the Sponsorship Form:</h3>
-          <p>Click on the “Sponsor a Pet” button on the pet’s profile page. Complete the sponsorship form with your details.</p>
-        </li>
-        <li className="mb-4">
-          <h3 className="font-semibold">Make Your Donation:</h3>
-          <p>Choose your payment method and complete your donation. You can opt for a one-time payment or set up recurring donations based on your selected sponsorship level.</p>
-        </li>
-        <li className="mb-4">
-          <h3 className="font-semibold">Receive Updates:</h3>
-          <p>As a sponsor, you will receive regular updates on your sponsored pet's progress and well-being. You may also receive invitations to events where you can meet your sponsored pet in person.</p>
-        </li>
-        <li>
-          <h3 className="font-semibold">Spread the Word:</h3>
-          <p>Share your sponsorship experience on social media to encourage others to sponsor pets in need. Use the hashtag #SponsorAFurEverFriend to raise awareness!</p>
-        </li>
-      </ol>
-
-      <h2 className="text-2xl font-bold text-blue-800 mt-6">Conclusion</h2>
-      <p className="text-lg text-gray-800">
-        Your sponsorship directly impacts the lives of our animals, helping us provide the care they need while they await adoption. Thank you for considering sponsoring a pet at FurEver Home!
-      </p>
+      <div className="mt-12 text-center">
+        <h2 className="text-3xl font-bold text-blue-800 mb-4">Your Impact</h2>
+        <p className="text-lg text-gray-800 mb-6">
+          Your sponsorship ensures pets receive the love, care, and resources they need to thrive while waiting for their forever home. Thank you for being their hero!
+        </p>
+        <button
+          onClick={() => alert('Redirecting to sponsorship page!')} // Replace with actual navigation logic
+          className="py-3 px-8 bg-blue-500 text-white text-lg font-semibold rounded-full shadow hover:bg-blue-600 transition-all transform hover:scale-105"
+        >
+          Sponsor a Pet Now
+        </button>
+      </div>
     </div>
   );
 };
