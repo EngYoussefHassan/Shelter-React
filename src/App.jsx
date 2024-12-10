@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// Import other components
-import Auth from "./components/auth";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import SuccessfulAdop from "./components/SuccessfulAdop";
@@ -15,13 +13,17 @@ import Navbar from "./components/Navbar";
 import AnimalInfo from "./components/AnimalInfo";
 import Payment from "./components/Payment";
 import AnimalForm from "./components/AnimalForm";
-import { auth } from "./firebase"; // Import the Firebase auth
-import { onAuthStateChanged } from "firebase/auth";
+import HowToAdopt from "./components/HowToAdopt";
+import HowToSponsor from "./components/HowToSponsor";
+import HowToUpload from "./components/HowToUpload";
+import { auth } from "./firebase"; // Import Firebase auth
+import { onAuthStateChanged } from "firebase/auth"; // Correct import statement
 
 const App = () => {
     const [user, setUser] = useState(null);
     const [availableAnimals, setAvailableAnimals] = useState([]);
 
+    // Firebase authentication state listener
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -33,8 +35,9 @@ const App = () => {
     return (
         <Router>
             <div className="App">
-                <Navbar user={user} /> {/* Pass user state to Navbar */}
+                <Navbar user={user} />
                 <Routes>
+                    {/* Main Routes */}
                     <Route path="/" element={<Hero />} />
                     <Route path="/adopt-foster" element={<Adopt_Foster animalList={availableAnimals} user={user} />} />
                     <Route path="/services" element={<Services />} />
@@ -45,7 +48,14 @@ const App = () => {
                     <Route path="/sponsor" element={<Sponsor />} />
                     <Route path="/animal/:id" element={<AnimalInfo />} />
                     <Route path="/payment/:id" element={<Payment />} />
-                    {user && <Route path="/add-animal" element={<AnimalForm />} />} {/* Only show this route if user is logged in */}
+
+                    {/* How To Routes */}
+                    <Route path="/how-to/adopt" element={<HowToAdopt />} />
+                    <Route path="/how-to/upload" element={<HowToUpload />} />
+                    <Route path="/how-to/sponsor" element={<HowToSponsor />} />
+
+                    {/* Protected Route for Add Animal */}
+                    {user && <Route path="/add-animal" element={<AnimalForm />} />}
                 </Routes>
                 <Footer />
             </div>
