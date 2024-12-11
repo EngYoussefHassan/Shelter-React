@@ -14,14 +14,10 @@ const Services = () => {
           </div>
           <h3 className="text-lg font-semibold text-blue-900">Adopt</h3>
           <p className="text-gray-700 text-center mt-2">
-            The number of animals looking for homes is ever-growing. By adopting, you have the power to change a life.
+            The number of animals looking for homes is ever-growing. By
+            adopting, you have the power to change a life.
           </p>
-          <a
-            className="mt-4 text-lg text-blue-900 hover:text-blue-400 transition-colors"
-            href="#"
-          >
-            Adopt Now!
-          </a>
+          <p className=" text-blue-900  transition-colors">Adopt Now!</p>
         </div>
 
         {/* Service Item 2: Foster */}
@@ -31,14 +27,10 @@ const Services = () => {
           </div>
           <h3 className="text-lg font-semibold text-blue-900">Foster</h3>
           <p className="text-gray-700 text-center mt-2">
-            Sometimes all an animal needs is a temporary home before they are ready to go to their forever homes.
+            Sometimes all an animal needs is a temporary home before they are
+            ready to go to their forever homes.
           </p>
-          <a
-            className="mt-4 text-lg text-blue-900 hover:text-blue-400 transition-colors"
-            href="#"
-          >
-            Foster Now!
-          </a>
+          <p className=" text-blue-900  transition-colors">Foster Now!</p>
         </div>
 
         {/* Service Item 3: Sponsor */}
@@ -48,14 +40,10 @@ const Services = () => {
           </div>
           <h3 className="text-lg font-semibold text-blue-900">Sponsor</h3>
           <p className="text-gray-700 text-center mt-2">
-            If you are unable to adopt or foster an animal, but still want to make a difference, the good news is that you can!
+            If you are unable to adopt or foster an animal, but still want to
+            make a difference, the good news is that you can!
           </p>
-          <a
-            className="mt-4 text-lg text-blue-900 hover:text-blue-400 transition-colors"
-            href="#"
-          >
-            Sponsor Now!
-          </a>
+          <p className=" text-blue-900  transition-colors">Sponcer Now!</p>
         </div>
       </div>
     </div>
