@@ -41,11 +41,14 @@ const About = () => {
   };
 
   return (
-    <div className="container mx-auto my-5 mt-10 px-4">
+    <div className="container mx-auto my-5 px-4">
+      {/* Title Section */}
+      <h1 className="text-5xl font-bold text-blue-900 text-center mb-8">About Us</h1>
+
       {/* Our Mission Section */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-10">
         <div className="md:w-1/2 text-left">
-          <h1 className="text-4xl font-bold text-blue-900">Our Mission</h1>
+          <h2 className="text-4xl font-bold text-blue-900">Our Mission</h2>
           <p className="bg-gray-100 text-lg text-gray-800 px-8 py-6 rounded-xl shadow-lg border border-gray-300">
             Our mission is to rescue, rehabilitate, and rehome animals in need,
             while promoting the humane treatment of all animals.
@@ -64,7 +67,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center justify-between mb-10">
         <div className="md:w-1/2 text-center md:text-left order-2 md:order-1"></div>
         <div className="md:w-1/2 text-right order-1 md:order-2">
-          <h1 className="text-4xl font-bold text-blue-900">Our Story</h1>
+          <h2 className="text-4xl font-bold text-blue-900">Our Story</h2>
           <p className="bg-gray-100 text-lg text-gray-800 px-8 py-6 rounded-xl shadow-lg border border-gray-300">
             Founded in 2018, FurEver Home was established to provide a safe haven
             for abandoned and neglected animals. Over the years, we have rescued
@@ -76,7 +79,7 @@ const About = () => {
       {/* Our Team Section */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-10">
         <div className="md:w-1/2 text-left">
-          <h1 className="text-4xl font-bold text-blue-900">Our Team</h1>
+          <h2 className="text-4xl font-bold text-blue-900">Our Team</h2>
           <p className="bg-gray-100 text-lg text-gray-800 px-8 py-6 rounded-xl shadow-lg border border-gray-300">
             Our dedicated team of volunteers and staff work tirelessly to ensure
             the well-being of every animal that comes through our doors. From our
@@ -97,7 +100,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center justify-between mb-10">
         <div className="md:w-1/2 text-center md:text-left order-2 md:order-1"></div>
         <div className="md:w-1/2 text-right order-1 md:order-2">
-          <h1 className="text-4xl font-bold text-blue-900">Our Impact</h1>
+          <h2 className="text-4xl font-bold text-blue-900">Our Impact</h2>
           <p className="bg-gray-100 text-lg text-gray-800 px-8 py-6 rounded-xl shadow-lg border border-gray-300">
             Since our founding in 2018, FurEver Home has made a profound difference in the lives of countless animals. We have successfully rescued, rehabilitated, and rehomed thousands of pets, while building a compassionate community dedicated to improving animal welfare.
           </p>
@@ -106,9 +109,9 @@ const About = () => {
 
       {/* Reviews Section */}
       <div className="bg-gray-100 px-8 py-6 rounded-xl shadow-lg border border-gray-300 my-10">
-        <h1 className="text-4xl font-bold text-blue-900 text-center mb-6">
+        <h2 className="text-4xl font-bold text-blue-900 text-center mb-6">
           What People Say About Us
-        </h1>
+        </h2>
         <div className="relative flex items-center justify-center">
           {/* Previous Button */}
           <button

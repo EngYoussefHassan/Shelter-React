@@ -1,43 +1,34 @@
 import React, { useState } from 'react';
 
 const HowToAdopt = () => {
-  const [isArabic, setIsArabic] = useState(false);
-
   const adoptionSteps = [
     {
-      title: isArabic ? "الخطوة 1: البحث" : "Step 1: Research",
-      description: isArabic
-        ? "تعرف على أنواع الحيوانات المتاحة للتبني وما يناسب أسلوب حياتك."
-        : "Learn about the types of pets available for adoption and what suits your lifestyle.",
-      image: "https://via.placeholder.com/150" // Replace with actual image URL
+      title: "Step 1: Research",
+      description:
+        "Learn about the types of pets available for adoption and what suits your lifestyle.",
+      image: "/src/assets/pics/search.jpg" // Replace with actual image URL
     },
     {
-      title: isArabic ? "الخطوة 2: زرنا" : "Step 2: Visit Us",
-      description: isArabic
-        ? "تعال إلى ملجأنا لمقابلة الحيوانات لدينا والعثور على التطابق المثالي."
-        : "Come to our shelter to meet our animals and find your perfect match.",
-      image: "https://via.placeholder.com/150" // Replace with actual image URL
+      title: "Step 2: Visit Us",
+      description:
+        "Come to our shelter to meet our animals and find your perfect match.",
+      image: "/src/assets/pics/shelter.png" // Replace with actual image URL
     },
     {
-      title: isArabic ? "الخطوة 3: املأ الطلب" : "Step 3: Complete the Application",
-      description: isArabic
-        ? "املأ طلب التبني لبدء العملية."
-        : "Fill out our adoption application to start the process.",
-      image: "https://via.placeholder.com/150" // Replace with actual image URL
+      title: "Step 3: Complete the Application",
+      description: "Fill out our adoption application to start the process.",
+      image: "/src/assets/pics/application.jpg" // Replace with actual image URL
     },
     {
-      title: isArabic ? "الخطوة 4: التحقق من المنزل" : "Step 4: Home Check",
-      description: isArabic
-        ? "قد نقوم بزيارة منزلك لضمان بيئة آمنة لحيوانك الجديد."
-        : "We may conduct a home check to ensure a safe environment for your new pet.",
-      image: "https://via.placeholder.com/150" // Replace with actual image URL
+      title: "Step 4: Home Check",
+      description:
+        "We may conduct a home check to ensure a safe environment for your new pet.",
+      image: "/src/assets/pics/homecheck.jpg" // Replace with actual image URL
     },
     {
-      title: isArabic ? "الخطوة 5: أحضر حيوانك الأليف للمنزل!" : "Step 5: Bring Your Pet Home!",
-      description: isArabic
-        ? "بمجرد الموافقة، يمكنك أخذ صديقك الجديد إلى المنزل!"
-        : "Once approved, you can take your new furry friend home!",
-      image: "https://via.placeholder.com/150" // Replace with actual image URL
+      title: "Step 5: Bring Your Pet Home!",
+      description: "Once approved, you can take your new furry friend home!",
+      image: "/src/assets/pics/animalhome.jpg" // Replace with actual image URL
     },
   ];
 
@@ -53,24 +44,12 @@ const HowToAdopt = () => {
     );
   };
 
-  const toggleLanguage = () => {
-    setIsArabic(!isArabic);
-  };
-
   return (
     <div className="container mx-auto my-10 px-4">
-      <h1 className={`text-4xl font-bold text-blue-900 text-center mb-8 ${isArabic ? "rtl" : ""}`}>
-        {isArabic ? "كيفية التبني" : "How to Adopt"}
+      <h1 className="text-4xl font-bold text-blue-900 text-center mb-8">
+        How to Adopt
       </h1>
-      <div className="flex justify-center mb-4">
-        <button
-          onClick={toggleLanguage}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
-        >
-          {isArabic ? "Switch to English" : "التحويل إلى العربية"}
-        </button>
-      </div>
-      <div className={`flex flex-col items-center ${isArabic ? "rtl" : ""}`}>
+      <div className="flex flex-col items-center">
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 rounded-full h-2.5 mb-8">
           <div
