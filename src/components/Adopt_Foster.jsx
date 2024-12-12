@@ -61,6 +61,10 @@ const AdoptFoster = () => {
                 <h4 className="text-xl font-semibold text-gray-700 text-center py-4">
                   {animal.name}
                 </h4>
+                {/* Show "Sold" status if applicable */}
+                {animal.status === "sold" && (
+                  <p className="text-red-500 font-bold text-center">Sold</p>
+                )}
               </div>
             </Link>
           ))}

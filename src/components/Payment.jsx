@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { db } from "../firebase"; // Ensure you have the correct import for Firestore
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
+import { useNavigate, useParams } from "react-router-dom"; // Import useNavigate and useParams
 
 const Payment = () => {
+  const { id } = useParams(); // Get animal ID from URL
+  const navigate = useNavigate(); // To programmatically navigate after payment
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -41,7 +44,13 @@ const Payment = () => {
         timestamp: new Date(),
       });
       console.log("Document written with ID: ", docRef.id);
+
+      // Update the animal document to mark it as sold
+      const animalDocRef = doc(db, "animals", id); // Reference to the animal document
+      await updateDoc(animalDocRef, { status: "sold" }); // Update the status field
+
       alert("Payment successful!"); // Show success message
+      navigate("/adopt-foster"); // Redirect to the adopt/foster page after payment
     } catch (error) {
       console.error("Error adding document: ", error);
       alert("There was an error processing your payment. Please try again.");
