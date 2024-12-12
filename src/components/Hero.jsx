@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Auth } from "./auth";
-import Services from "./Services";
-import Sponsor from "./Sponsor";
-import Contact from "./ContactUs";
+import Services from "./Services";  
+import Sponsor from "./Sponsor";  
+import Contact from "./ContactUs";  
 import Partners from "./Partners";
 
 const Hero = () => {
@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <>
-      {/* Top Navigation with Auth Buttons */}
+
 
       {/* Hero Section */}
       <div
@@ -53,9 +53,27 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Authentication Modal */}
+      {authModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
+              {authModal === "signIn" ? "Sign In" : "Log In"}
+            </h2>
+            <Auth /> {/* Authentication Form */}
+            <button
+              onClick={closeAuthModal}
+              className="mt-4 rounded-[5px] bg-blue-950 text-white px-4 py-2 hover:bg-blue-800"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Include Services, Sponsor, and Contact components directly on Hero page */}
       <Services />
-      <Partners />
+      <Partners/>
       <Sponsor />
       <Contact />
     </>
