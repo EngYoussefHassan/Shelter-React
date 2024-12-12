@@ -51,7 +51,10 @@ const AdoptFoster = () => {
             <Link key={animal.id} to={`/animal/${animal.id}`}>
               <div className="card shadow-lg rounded-lg overflow-hidden bg-white hover:transform hover:scale-105 transition-all">
                 <img
-                  src={animalImages[animal.name] || "https://via.placeholder.com/150"}
+                  src={
+                    animalImages[animal.name] ||
+                    "https://via.placeholder.com/150"
+                  }
                   alt={animal.name}
                   className="w-full h-56 object-cover"
                 />
