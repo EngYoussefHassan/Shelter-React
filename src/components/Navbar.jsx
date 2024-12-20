@@ -66,6 +66,7 @@ const Navbar = ({ user, setUser }) => {
               </div>
             )}
           </div>
+          <Link to="/vets" className="hover:text-blue-700">Vets Appointment</Link> {/* Vets Appointment link */}
           {user && <Link to="/add-animal" className="hover:text-blue-700">Add Animal</Link>}
         </div>
 
@@ -106,6 +107,7 @@ const Navbar = ({ user, setUser }) => {
               </div>
             )}
           </div>
+          <Link to="/vets" className="hover:text-blue-700" onClick={toggleMenu}>Vets Appointment</Link> {/* Vets Appointment link */}
           {user && <Link to="/add-animal" className="hover:text-blue-700" onClick={toggleMenu}>Add Animal</Link>}
         </div>
       )}

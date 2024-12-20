@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Partners from "./Partners";
+import { Link } from "react-router-dom"; // Ensure you have Link from react-router-dom for navigation
+import Footer from "./Footer";
 
 const About = () => {
   const reviews = [
@@ -96,6 +99,30 @@ const About = () => {
         </div>
       </div>
 
+      {/* Volunteers Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between mb-10">
+        <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
+          <img
+            src="/src/assets/Pics/vol.webp"
+            alt="Volunteers Image"
+            className="w-96 h-96 object-cover mb-4 md:mb-0 rounded-xl"
+          />
+        </div>
+        <div className="md:w-1/2 text-right order-1 md:order-2">
+          <h2 className="text-4xl font-bold text-blue-900">Volunteers</h2>
+          <p className="bg-gray-100 text-lg text-gray-800 px-8 py-6 rounded-xl shadow-lg border border-gray-300">
+            Volunteers are the backbone of FurEver Home. Their dedication and
+            hard work help us rescue and care for countless animals. Whether it’s
+            fostering a pet, assisting with events, or helping with daily care,
+            every volunteer plays a vital role. If you’re passionate about making
+            a difference, join us today and be part of our mission!
+          </p>
+          <Link to="/volunteeringform" className="text-white bg-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors mt-4 inline-block">
+            Volunteer With Us
+          </Link>
+        </div>
+      </div>
+
       {/* Our Impact Section */}
       <div className="flex flex-col md:flex-row items-center justify-between mb-10">
         <div className="md:w-1/2 text-center md:text-left order-2 md:order-1"></div>
@@ -143,6 +170,7 @@ const About = () => {
           </button>
         </div>
       </div>
+      <Partners/>
     </div>
   );
 };

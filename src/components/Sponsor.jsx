@@ -5,7 +5,7 @@ const Sponsor = () => {
   const navigate = useNavigate();
 
   const handleBuyBone = () => {
-    navigate("/payment"); // Navigate to the payment page
+    navigate("/payment"); // Navigate to the general payment page
   };
 
   return (
@@ -14,7 +14,8 @@ const Sponsor = () => {
         Help Us Keep the Love Flowing!
       </h3>
       <p className="text-lg text-gray-600 mb-4">
-        To ensure our services remain affordable, please consider supporting our mission by helping us out. Every bit counts!
+        To ensure our services remain affordable, please consider supporting our
+        mission by helping us out. Every bit counts!
       </p>
       <button
         onClick={handleBuyBone}

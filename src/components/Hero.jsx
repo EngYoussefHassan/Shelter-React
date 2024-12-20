@@ -4,7 +4,7 @@ import { Auth } from "./auth";
 import Services from "./Services";  
 import Sponsor from "./Sponsor";  
 import Contact from "./ContactUs";  
-import Partners from "./Partners";
+import Footer from "./Footer"
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -73,7 +73,6 @@ const Hero = () => {
 
       {/* Include Services, Sponsor, and Contact components directly on Hero page */}
       <Services />
-      <Partners/>
       <Sponsor />
       <Contact />
     </>
