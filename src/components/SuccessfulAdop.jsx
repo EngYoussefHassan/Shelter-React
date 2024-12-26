@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const SuccessfulAdop = () => {
   const [showMore, setShowMore] = useState(false);
-  const navigate = useNavigate(); // Use navigate to handle routing
 
   const handleToggle = () => {
     setShowMore(!showMore);
@@ -24,10 +22,6 @@ const SuccessfulAdop = () => {
     { id: 12, name: "Daisy", image: "/src/assets/pics/logoo.jpg", story: "Fostered by Jessica, a vet who provides her with all the care she needs." },
   ];
 
-  const handleCardClick = (id) => {
-    navigate(`/animal/${id}`); // Navigate to the AnimalInfo page with the animal ID
-  };
-
   return (
     <section className="py-16">
       <div className="container mx-auto text-center">
@@ -39,8 +33,7 @@ const SuccessfulAdop = () => {
           {animals.slice(0, showMore ? animals.length : 8).map((animal) => (
             <div
               key={animal.id}
-              className="card shadow-lg rounded-lg overflow-hidden bg-white hover:transform hover:scale-105 transition-all cursor-pointer"
-              onClick={() => handleCardClick(animal.id)} // Call function to navigate
+              className="card shadow-lg rounded-lg overflow-hidden bg-white hover:scale-105 transition-all"
             >
               <img
                 src={animal.image}

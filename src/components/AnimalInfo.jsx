@@ -1,39 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
 import { doc, getDoc } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
-import { db, storage } from "../firebase"; // Import Firebase config
+import { db, storage } from "../firebase";
 
 const AnimalInfo = () => {
-  const { id } = useParams(); // Extract ID from URL
+  const { id } = useParams(); // Get animal ID from the URL
   const [animal, setAnimal] = useState(null);
-  const [animalImage, setAnimalImage] = useState(""); // To store the image URL
+  const [imageURL, setImageURL] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchAnimal = async () => {
       try {
-        // Fetch the animal document from Firestore
-        const animalDoc = doc(db, "animals", id);
-        const docSnap = await getDoc(animalDoc);
+        const docRef = doc(db, "animals", id); // Get animal document from Firestore
+        const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          const animalData = { id: docSnap.id, ...docSnap.data() };
-          setAnimal(animalData);
+          setAnimal(docSnap.data());
 
-          // Fetch the image from Firebase Storage
-          const imageRef = ref(storage, `images/${animalData.name}.jpg`); // Assuming image matches the name
-          try {
-            const imageUrl = await getDownloadURL(imageRef);
-            setAnimalImage(imageUrl); // Set the image URL
-          } catch (error) {
-            console.error(`Error fetching image for ${animalData.name}:`, error);
-            setAnimalImage("https://via.placeholder.com/150"); // Fallback image
-          }
+          // Fetch the image for the animal
+          const imageRef = ref(storage, `images/${docSnap.data().name}.jpg`);
+          const image = await getDownloadURL(imageRef);
+          setImageURL(image);
         } else {
-          console.error("No such document!");
+          console.error("No such animal!");
         }
       } catch (error) {
-        console.error("Error fetching animal data:", error);
+        console.error("Error fetching animal details:", error);
       }
     };
 
@@ -41,31 +35,60 @@ const AnimalInfo = () => {
   }, [id]);
 
   if (!animal) {
-    return <div>Loading...</div>;
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-2xl font-bold">Loading...</h2>
+      </div>
+    );
   }
 
+  // Function to handle the adoption process
+  const handleAdopt = () => {
+    // Navigate to the payment page with the animal's id as a parameter
+    navigate(`/payment/${id}`);
+  };
+
   return (
-    <div className="container mx-auto text-center py-16">
-      <h3 className="text-3xl font-bold text-gray-800 mb-10">{animal.name}</h3>
-      <img
-        src={animalImage || "https://via.placeholder.com/150"}
-        alt={animal.name}
-        className="w-56 h-56 object-cover mb-4 mx-auto"
-      />
-      <p className="text-lg text-gray-700 mb-4">{animal.description}</p>
-      <div className="text-sm text-gray-500 mb-4">
-        <p>ID: {animal.id}</p>
-        <p>Breed: {animal.breed}</p>
-        <p>Age: {animal.age}</p>
-        <p>Gender: {animal.gender}</p>
-        <p>Vaccination: {animal.vaccination}</p>
-        <p>Potty Training: {animal.pottytraining}</p>
+    <div className="container mx-auto py-10">
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="w-full md:w-1/2">
+          <img
+            src={imageURL || "https://via.placeholder.com/400"}
+            alt={animal.name}
+            className="rounded-lg shadow-lg w-80"
+          />
+        </div>
+        <div className="w-full md:w-1/2 mt-6 md:mt-0 md:pl-10">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{animal.name}</h1>
+          <p className="text-lg text-gray-600 mb-4">{animal.description}</p>
+          <ul className="text-lg text-gray-700 space-y-2">
+            <li>
+              <strong>Type:</strong> {animal.type}
+            </li>
+            <li>
+              <strong>Age:</strong> {animal.age} month{animal.age > 1 ? 's' : ''}
+            </li>
+            <li>
+              <strong>Gender:</strong> {animal.gender}
+            </li>
+            <li>
+              <strong>Vaccination:</strong> {animal.vaccination}
+            </li>
+            <li>
+              <strong>Potty Trained:</strong> {animal.pottyTraining ? 'Yes' : 'No'}
+            </li>
+            <li>
+              <strong>Price:</strong> ${animal.price}
+            </li>
+          </ul>
+          <button
+            onClick={handleAdopt} // Add onClick to handle navigation
+            className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+          >
+            Adopt Now
+          </button>
+        </div>
       </div>
-      <Link to={`/payment/${animal.id}`}>
-        <button className="mt-8 py-3 px-6 bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all">
-          Adopt {animal.name}
-        </button>
-      </Link>
     </div>
   );
 };

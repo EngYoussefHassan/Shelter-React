@@ -3,7 +3,7 @@ import { storage, db } from "../firebase"; // Import Firebase config
 import { collection, getDocs } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+
 
 const AdoptFoster = () => {
   const [animalList, setAnimalList] = useState([]);

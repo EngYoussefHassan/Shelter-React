@@ -12,6 +12,7 @@ const AnimalForm = () => {
   const [vaccination, setVaccination] = useState(""); 
   const [pottyTraining, setPottyTraining] = useState(""); 
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -32,6 +33,7 @@ const AnimalForm = () => {
         vaccination,
         pottyTraining, 
         description,
+        price,
       });
 
       // Reset the form
@@ -43,6 +45,7 @@ const AnimalForm = () => {
       setVaccination("");
       setPottyTraining("");
       setDescription("");
+      setPrice("");
       setImage(null);
 
       alert("Animal added successfully!");
@@ -142,6 +145,16 @@ const AnimalForm = () => {
             required
             className="w-full border rounded px-3 py-2"
           ></textarea>
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-gray-700">Price</label>
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2"
+          />
         </div>
         <div className="mb-4">
           <label className="block mb-2 text-gray-700">Image</label>

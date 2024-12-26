@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "../firebase"; // Adjust the path as necessary
+import { collection, addDoc } from "firebase/firestore"; // Import Firestore functions
 
 const VetsApp = () => {
   // Mock list of veterinarians
@@ -37,17 +39,37 @@ const VetsApp = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAppointment((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would handle submission logic, like sending the data to a server.
-    console.log("Appointment submitted:", appointment);
-    setSubmitted(true);
+    try {
+      // Add appointment to Firestore
+      const docRef = await addDoc(collection(db, "Appointments"), appointment);
+      console.log("Document written with ID: ", docRef.id);
+      setSubmitted(true);
+      setError("");
+
+      // Reset the form fields
+      setAppointment({
+        vetId: "",
+        petName: "",
+        ownerName: "",
+        date: "",
+        time: "",
+        notes: "",
+      });
+
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      setError("Failed to submit appointment. Please try again.");
+    }
+    
     setTimeout(() => setSubmitted(false), 5000); // Reset message after 5 seconds
   };
 
@@ -74,7 +96,7 @@ const VetsApp = () => {
             <img
               src={vet.image}
               alt={vet.name}
-              className="w-full h-64 object-cover" // Increased height
+              className="w-full h-64 object-cover"
             />
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">{vet.name}</h2>
@@ -92,6 +114,9 @@ const VetsApp = () => {
         </h2>
         {submitted && (
           <p className="text-green-600 mb-4">Appointment successfully submitted!</p>
+        )}
+        {error && (
+          <p className="text-red-600 mb-4">{error}</p>
         )}
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Veterinarian Selection */}
