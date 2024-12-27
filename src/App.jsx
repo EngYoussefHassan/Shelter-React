@@ -45,8 +45,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/animal/:id" element={<AnimalInfo />} />
-          <Route path="/payment" element={<Payment />} /> {/* General payment route */}
-          <Route path="/payment/:animalId" element={<Payment />} /> {/* Specific animal payment */}
+          <Route path="/payment/:id" element={<Payment />} /> {/* Specific animal payment */}
           <Route path="/how-to/adopt" element={<HowToAdopt />} />
           <Route path="/how-to/upload" element={<HowToUpload />} />
           <Route path="/how-to/sponsor" element={<HowToSponsor />} />

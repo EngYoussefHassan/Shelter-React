@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Partners from "./Partners";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
 const About = () => {
   const reviews = [

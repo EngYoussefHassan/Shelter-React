@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Auth } from "./auth";
 import Services from "./Services";  
 import Sponsor from "./Sponsor";  
-import Contact from "./ContactUs";  
-import Footer from "./Footer"
+import Contact from "./ContactUs";
 
 const Hero = () => {
   const navigate = useNavigate();
