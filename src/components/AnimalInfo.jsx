@@ -33,7 +33,11 @@ const AnimalInfo = () => {
   }, [id]);
 
   const handleAdopt = () => {
-    navigate(`/payment/${id}`);
+    if (animal?.status === "sold") {
+      alert("This animal is already sold!");
+    } else {
+      navigate(`/payment/${id}`);
+    }
   };
 
   if (!animal) {
@@ -64,6 +68,7 @@ const AnimalInfo = () => {
             <li><strong>Vaccination:</strong> {animal.vaccination}</li>
             <li><strong>Potty Trained:</strong> {animal.pottyTraining ? "Yes" : "No"}</li>
             <li><strong>Price:</strong> ${animal.price}</li>
+            <li><strong>Status:</strong> {animal.status}</li>
           </ul>
           <button
             onClick={handleAdopt}
